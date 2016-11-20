@@ -1,0 +1,55 @@
+{
+  "services": {
+    "service_1": {
+      "desc": "Does ABCD.",
+      "creationDate": "1900-01-01",
+      "architecture": "microservice",
+      "language": "Python"
+    },
+    "service_2": {
+      "desc": "Does 1234.",
+      "creationDate": "1900-01-02",
+      "architecture": "monolithic",
+      "language": "Python"
+    }
+  },
+  "apiConfig": {
+    "production": {
+      "baseURLs": {
+        "service_1": {
+          "url": "service1.test.com",
+          "protocol": "https",
+          "port": "443"
+        },
+        "service_2": {
+          "url": "service2.test.com",
+          "protocol": "https",
+          "port": "443"
+        }
+      }
+    }
+  },
+  "apiTestConfigObjects": [
+      {
+
+        "endpoint": "/api/v1/test",
+        "method": "GET",
+        "payloadType": "NONE",
+        "responseType": "JSON",
+        "responseCodeContext": {
+          "200": "Success",
+          "404": "Resource Not Found"
+        }
+      },
+      {
+        "endpoint": "/api/v1/other-test",
+        "method": "POST",
+        "payloadType": "JSON",
+        "responseType": "NONE",
+        "responseCodeContext": {
+          "200": "Success",
+          "404": "Resource Not Found"
+        }
+      }
+    ]
+}
